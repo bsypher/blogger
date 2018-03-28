@@ -14,7 +14,7 @@
 
 <p><%= @article.body %></p>
 <h3>Comments</h3>
-
+<% if logged_in? %>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 <%= render partial: 'comments/form' %>
 <%= link_to "<< Back to Articles List", articles_path %>
@@ -24,3 +24,4 @@
 data: {confirm: "Really delete the article?"}
  %>
 <%= link_to "edit", edit_article_path(@article) %>
+<% end %>
